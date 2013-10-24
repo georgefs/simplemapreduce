@@ -1,0 +1,20 @@
+application: appengine
+version: mapreduce
+runtime: python27
+api_version: 1
+threadsafe: no
+
+handlers:
+
+- url: /mapreduce(/.*)?
+  script: mapreduce.main.APP
+
+- url: .*
+  script: main.app
+  login: required
+
+libraries:
+- name: webapp2
+  version: "2.5.1"
+- name: jinja2
+  version: "2.6"
